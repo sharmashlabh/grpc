@@ -6,3 +6,8 @@
 cmake build command for client server
 
 cmake ../.. -DCMAKE_PREFIX_PATH="/home/shlabh-sharma/code/cpp/thirdparty/grpc/cmake/build/install"
+
+#git commands to add submodule as dependency 
+git submodule add -b v1.71.x https://github.com/grpc/grpc.git third_party/grpc
+git submodule update --init --recursive
+
