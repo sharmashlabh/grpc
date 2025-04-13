@@ -1,0 +1,8 @@
+#Run below command to generate grpc files in current dir
+../thirdparty/grpc/cmake/build/install/bin/protoc -I . greeterservice.proto   --cpp_out=.   --grpc_out=.   --plugin=protoc-gen-grpc=../thirdparty/grpc/cmake/build/install/bin/grpc_cpp_plugin
+
+
+
+cmake build command for client server
+
+cmake ../.. -DCMAKE_PREFIX_PATH="/home/shlabh-sharma/code/cpp/thirdparty/grpc/cmake/build/install"
