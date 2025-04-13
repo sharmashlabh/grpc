@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 project(GreeterService C CXX)
-include("${CMAKE_CURRENT_SOURCE_DIR}/grpc/third_party/grpc/examples/cpp/cmake/common.cmake")
+include("${CMAKE_CURRENT_SOURCE_DIR}/third_party/grpc/examples/cpp/cmake/common.cmake")
 
 # Proto file
 get_filename_component(hw_proto "greeterservice.proto" ABSOLUTE)
