@@ -1,13 +1,39 @@
 #Run below command to generate grpc files in current dir
 ../thirdparty/grpc/cmake/build/install/bin/protoc -I . greeterservice.proto   --cpp_out=.   --grpc_out=.   --plugin=protoc-gen-grpc=../thirdparty/grpc/cmake/build/install/bin/grpc_cpp_plugin
+cd third_party/grpc/
+mkdir -p cmake/build
+cd cmake/build
+# Clone gRPC and its submodules
+git clone --recurse-submodules -b v1.60.0 https://github.com/grpc/grpc
+cd grpc
+
+# Create build directory
+mkdir -p cmake/build
+cd cmake/build
+
+# Run CMake 
+cmake ../.. \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DgRPC_BUILD_TESTS=OFF \
+  -DgRPC_INSTALL=ON \
+  -DCMAKE_INSTALL_PREFIX=install/
+
+  make install 
+
+cd ../..
 
 
+#make build command for client server
 
-cmake build command for client server
+cmake ../.. -DCMAKE_PREFIX_PATH="third_party/grpc/cmake/build/install"
+make 
 
-cmake ../.. -DCMAKE_PREFIX_PATH="/home/shlabh-sharma/code/cpp/thirdparty/grpc/cmake/build/install"
+#Run server 
+./server
 
 #git commands to add submodule as dependency 
 git submodule add -b v1.71.x https://github.com/grpc/grpc.git third_party/grpc
 git submodule update --init --recursive
+
+
 
